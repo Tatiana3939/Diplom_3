@@ -1,4 +1,4 @@
-package TestModel;
+package testModel;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;

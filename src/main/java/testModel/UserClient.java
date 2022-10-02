@@ -1,13 +1,13 @@
-package TestModel;
+package testModel;
 
-import TestModel.RestClient;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 public class UserClient extends RestClient {
     private final String REGISTER = "/auth/register";
     private final String LOGIN = "/auth/login";
     private final String DELETE = "/auth/user?={user}";
-
+    @Step("Регистрация нового пользователя")
     public Response registerNewUser(UserModel user) {
         return reqSpec
                 .body(user)
@@ -15,6 +15,7 @@ public class UserClient extends RestClient {
                 .post(REGISTER);
     }
 
+    @Step("Вход пользователя")
     public Response login(UserCredentials creds) {
         return reqSpec
                 .body(creds)
@@ -22,6 +23,7 @@ public class UserClient extends RestClient {
                 .post(LOGIN);
     }
 
+    @Step("Удаление пользователя")
     public void delete(String user, String bearerToken) {
 
         reqSpec

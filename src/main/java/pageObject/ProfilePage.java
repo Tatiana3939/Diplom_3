@@ -1,7 +1,8 @@
-package PageObject;
+package pageObject;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -33,18 +34,14 @@ public class ProfilePage {
     }
 
     // Метод клика по элементу <Конструктор>
+    @Step("Нажали Создать бургер")
     public MainPage clickCreateBurger() {
         createBurger.click();
         return Selenide.page(MainPage.class);
     }
 
-    // Метод клика по элементу логотип <Stellar Burgers>
-    public MainPage clickBurgerLogo() {
-        createBurger.click();
-        return Selenide.page(MainPage.class);
-    }
-
     // Метод клика по кнопке <Выход>
+    @Step("Нажали Выйти")
     public LoginPage clickLogoutButton() {
         logoutButton.click();
         return Selenide.page(LoginPage.class);

@@ -1,7 +1,7 @@
-import PageObject.MainPage;
-import TestModel.UserClient;
-import TestModel.UserCredentials;
-import TestModel.UserModel;
+import pageObject.MainPage;
+import testModel.UserClient;
+import testModel.UserCredentials;
+import testModel.UserModel;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;

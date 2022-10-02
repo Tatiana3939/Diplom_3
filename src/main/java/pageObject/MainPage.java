@@ -1,6 +1,7 @@
-package PageObject;
+package pageObject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import com.codeborne.selenide.Selenide;
@@ -35,11 +36,13 @@ public class MainPage {
     @FindBy(how = How.CLASS_NAME,using = "BurgerIngredients_ingredients__list__2A-mT")
     private SelenideElement ingredientsScrollDown;
 
+    @Step("Нажали кнопку Войти")
     public LoginPage clickLoginButton() {
         loginButton.click();
         return Selenide.page(LoginPage.class);
     }
 
+    @Step("Нажали кнопку Заказ")
     public LoginPage clickOrderButton() {
         orderButton.click();
         return Selenide.page(LoginPage.class);
@@ -48,12 +51,12 @@ public class MainPage {
     public boolean isOrderButtonDisplayed() {
         return orderButton.shouldBe(visible).isDisplayed();
     }
-
+    @Step("Нажали Личный кабинет")
     public LoginPage clickProfileLink() {
         profileLink.click();
         return Selenide.page(LoginPage.class);
     }
-
+    @Step("Нажали Личный кабинет после логина")
     public ProfilePage clickProfileLinkUserLogged() {
         profileLink.click();
         return Selenide.page(ProfilePage.class);

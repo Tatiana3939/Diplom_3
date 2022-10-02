@@ -1,9 +1,9 @@
-import PageObject.ForgotPasswordPage;
-import PageObject.MainPage;
-import PageObject.RegisterPage;
-import TestModel.UserClient;
-import TestModel.UserCredentials;
-import TestModel.UserModel;
+import pageObject.ForgotPasswordPage;
+import pageObject.MainPage;
+import pageObject.RegisterPage;
+import testModel.UserClient;
+import testModel.UserCredentials;
+import testModel.UserModel;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;

@@ -1,4 +1,4 @@
-package TestModel;
+package testModel;
 
 public class UserCredentials {
     private String email;

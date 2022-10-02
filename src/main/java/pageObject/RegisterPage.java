@@ -1,6 +1,7 @@
-package PageObject;
+package pageObject;
 
-import TestModel.UserModel;
+import io.qameta.allure.Step;
+import testModel.UserModel;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,30 +38,36 @@ public class RegisterPage {
     private SelenideElement loginLink;
 
     // метод заполнения поля ввода имени
+    @Step("Заполнили Имя")
     public RegisterPage inputName(String name) {
         nameInputField.sendKeys(name);
         return this;
     }
 
     // метод заполнения поля ввода email
+    @Step("Заполнили Имейл")
     public RegisterPage inputEmail(String email) {
         emailInputField.sendKeys(email);
         return this;
     }
 
     // метод заполнения поля ввода пароля
+    @Step("Заполнили Пароль")
     public RegisterPage inputPassword(String password) {
         passwordInputField.sendKeys(password);
         return this;
     }
 
     // Метод клика по кнопке <Зарегистрироваться>
+    @Step("Нажали Регистрация")
     public LoginPage clickRegisterButton() {
         registerButton.click();
         return Selenide.page(LoginPage.class);
     }
 
     // метод регистрации нового пользователя
+
+    @Step("Запонляем форму регистрации")
     public LoginPage registerNewUser(UserModel user) {
         inputName(user.getName());
         inputEmail(user.getEmail());
@@ -70,6 +77,7 @@ public class RegisterPage {
     }
 
     // метод регистрации нового пользователя с неверным паролем
+    @Step("Запонляем форму регистрации неверными данными")
     public RegisterPage registerNewUserWithIncorrectPass(UserModel user) {
         inputName(user.getName());
         inputEmail(user.getEmail());
@@ -84,6 +92,7 @@ public class RegisterPage {
     }
 
     // Метод клика по ссылке <Войти>
+    @Step("Нажали Войти")
     public LoginPage clickLoginLink() {
         loginLink.click();
         return Selenide.page(LoginPage.class);

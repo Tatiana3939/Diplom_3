@@ -1,6 +1,7 @@
-package PageObject;
+package pageObject;
 
-import TestModel.UserModel;
+import io.qameta.allure.Step;
+import testModel.UserModel;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,29 +33,33 @@ public class LoginPage {
     @FindBy(how = How.XPATH,using = ("//h2[text()='Вход']"))
     private SelenideElement userLoginText;
 
+    @Step("Нажали кнопку Регистрация")
     public RegisterPage clickRegisterLink() {
         registerLink.shouldBe(visible).click();
         return Selenide.page(RegisterPage.class);
     }
-
+    @Step("Нажали Сбросить пароль")
     public ForgotPasswordPage clickRestorePasswordLink() {
         restorePasswordLink.click();
         return Selenide.page(ForgotPasswordPage.class);
     }
+    @Step("Нажали Войти")
     public MainPage clickLoginButton() {
         loginButton.click();
         return Selenide.page(MainPage.class);
     }
+    @Step("Заполнили Email")
     public LoginPage inputEmail(String email) {
         emailInputField.sendKeys(email);
         return this;
     }
 
+    @Step("Заполнили Email")
     public LoginPage inputPassword(String password) {
         passwordInputField.sendKeys(password);
         return this;    }
 
-
+    @Step("Заполнили имейл и пароль, нажали Войти")
     public MainPage userLogin(UserModel user) {
         inputEmail(user.getEmail());
         inputPassword(user.getPassword());
